@@ -1,553 +1,193 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Seafarer - Exploring the Future of Web3 and Coding</title><meta name="keywords" content="Web3, Rust, Solidity, blockchain, smart contracts, decentralized, coding, web development"><meta name="author" content="Seafarer"><meta name="copyright" content="Seafarer"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Seafarer"><meta name="application-name" content="Seafarer"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="website"><meta property="og:title" content="Seafarer"><meta property="og:url" content="http://example.com/index.html"><meta property="og:site_name" content="Seafarer"><meta property="og:description" content="Documenting my transition into Web3 technologies, focusing on Rust, Solidity, and blockchain development."><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://ooo.0x0.ooo/2024/12/23/OEUz8I.jpg"><meta property="article:author" content="Seafarer"><meta property="article:tag" content="Web3, Rust, Solidity, blockchain, smart contracts, decentralized, coding, web development"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://ooo.0x0.ooo/2024/12/23/OEUz8I.jpg"><meta name="description" content="Documenting my transition into Web3 technologies, focusing on Rust, Solidity, and blockchain development."><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
-  linkPageTop: undefined,
-  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
-  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
-  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
-  LA51: undefined,
-  greetingBox: undefined,
-  twikooEnvId: '',
-  commentBarrageConfig:undefined,
-  music_page_default: "nav_music",
-  root: '/',
-  preloader: {"source":3},
-  friends_vue_info: undefined,
-  navMusic: true,
-  mainTone: undefined,
-  authorStatus: undefined,
-  algolia: undefined,
-  localSearch: undefined,
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    simplehomepage: true,
-    post: false
-  },
-  runtime: '天',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Seafarer","link":"链接: ","source":"来源: Seafarer","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
-  lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
-      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isAnchor: false,
-  shortcutKey: undefined,
-  autoDarkmode: true
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  configTitle: 'Seafarer',
-  title: 'Seafarer',
-  postAI: '',
-  pageFillDescription: '',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2025-01-12 12:02:32',
-  postMainColor: '',
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Seafarer - Exploring the Future of Web3 and Coding</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/pwa/favicon.png"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=3.0.8"><!-- inject head--><link rel="canonical" href="http://example.com/index.html"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"><!-- aplayer--><!-- swiper--><!-- fancybox ui--><!-- katex--><!-- Open Graph--><meta name="description" content="Documenting my transition into Web3 technologies, focusing on Rust, Solidity, and blockchain development."><!-- pwa--><meta name="apple-mobile-web-app-capable" content="Seafarer"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.png"><link rel="apple-touch-icon" href="/img/pwa/favicon.png" sizes="180x180"><script>console.log(' %c Solitude %c ' + '3.0.8' + ' %c https://github.com/everfu/hexo-theme-solitude',
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
+</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
-    
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
 
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
-
-        document.head.appendChild(script)
-      })
-    
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
-    
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-          if (t === undefined) {
-            if (isLightMode) activateLightMode()
-            else if (isDarkMode) activateDarkMode()
-            else if (isNotSpecified || hasNoSupport) {
-              const now = new Date()
-              const hour = now.getHours()
-              const isNight = hour <= 6 || hour >= 18
-              isNight ? activateDarkMode() : activateLightMode()
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
             }
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
-              if (saveToLocal.get('theme') === undefined) {
-                e.matches ? activateDarkMode() : activateLightMode()
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
               }
-            })
-          } else if (t === 'light') activateLightMode()
-          else activateDarkMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+
+                if (name && keyObj[name]) return
+
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+            addEventListenerPjax: (ele, event, fn, option = false) => {
+              ele.addEventListener(event, fn, option)
+              utils.addGlobalFn('pjax', () => {
+                  ele.removeEventListener(event, fn, option)
+              })
+          },
         }
-      }
-    
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://ooo.0x0.ooo/2024/12/23/OEUz8I.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
-  endLoading: () => {
-    document.getElementById('loading-box').classList.add("loaded");
-  },
-  initLoading: () => {
-    document.getElementById('loading-box').classList.remove("loaded")
-  }
-}
-window.addEventListener('load',()=> { preloader.endLoading() })
-setTimeout(function(){preloader.endLoading();},10000)
-
-if (true) {
-  document.addEventListener('pjax:send', () => { preloader.initLoading() })
-  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: url(https://ooo.0x0.ooo/2024/12/22/OET0Al.webp) top / cover no-repeat"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">Seafarer</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 1.05rem;">后端开发<sup>15</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">7</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">十二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="site-info"><h1 id="site-title">Seafarer</h1><div id="site_social_icons"><a class="social-icon faa-parent animated-hover" href="https://github.com/seafarer" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a></div></div><div id="scroll-down"><i class="anzhiyufont anzhiyu-icon-angle-down scroll-down-effects"></i></div></header><main id="blog-container"><div class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div id="categoryBar"><div class="category-bar" id="category-bar"><div id="catalog-bar"><div id="catalog-list"><div class="catalog-list-item" id="首页"><a href="/">首页</a></div>
-    <div class="catalog-list-item" id="/categories/Rust/">
-      <a href="/categories/Rust/">
-        Rust
-      </a>
-    </div>
-    </div><div class="category-bar-next" id="category-bar-next" onclick="anzhiyu.scrollCategoryBarToRight()"><i class="anzhiyufont anzhiyu-icon-angle-double-right"></i></div><a class="catalog-more" href="/categories/">更多</a></div></div></div><div class="recent-post-item lastestpost-item" onclick="pjax.loadUrl('/2025/01/11/rust_memory/')"><div class="post_cover left"><a href="/2025/01/11/rust_memory/" title="Rust 内存" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/12/23/OEUxH1.jpg?_r_=c41dbdec-970a-795c-a157-27eeab43a77c" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust 内存" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">Rust</div><span class="newPost">最新</span><a class="unvisited-post" href="/2025/01/11/rust_memory/" title="Rust 内存">未读</a></div><a class="article-title" href="/2025/01/11/rust_memory/" title="Rust 内存">Rust 内存</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2025-01-11T03:25:00.000Z" title="发表于 2025-01-11 11:25:00" time="2025-01-11 11:25:00">2025-01-11</time><time class="time_hidden" datetime="2025-01-12T04:02:16.089Z" title="更新于 2025-01-12 12:02:16" time="2025-01-12 12:02:16">2025-01-12</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>后端开发</span></a></span></div><div class="content">Rust 共享内存
-1. 概念共享内存是多线程编程中的一种方式，多个线程可以访问同一块内存，从而实现数据共享。Rust 提供了安全的共享内存机制，通过所有权和类型系统避免常见问题（如数据竞争和未定义行为）。
-
-2. 共享内存的作用
-数据共享：允许多个线程访问和操作同一块数据。
-高效传递：减少线程间复制数据的开销。
-任务协作：实现线程间同步和通信。
-
-
-3. Rust 中的共享内存工具
-Arc (Atomic Reference Counted)  
-
-提供线程安全的引用计数，用于共享不可变数据。  
-特点：多线程访问时，保证数据的引用计数是原子操作。
-
-
-Mutex (Mutual Exclusion)  
-
-提供可变数据的互斥锁保护。  
-特点：保证同一时间只有一个线程访问被保护的数据。
-
-
-RwLock (Read-Write Lock)  
-
-允许多个线程同时读，但只允许一个线程写。  
-特点：读性能高于 Mutex。
-
-
-Cell 和 RefCell  
-
-单线程场景下的内部可变性工具，不适用于多线程。
-
-
-
-
-4. 使用方法与代码示例4.1 Arc：共享不可变数据123456 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/11/rust_concurrency/')"><div class="post_cover left"><a href="/2025/01/11/rust_concurrency/" title="Rust 并发" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/12/23/OEUxH1.jpg?_r_=8e05f604-38d4-a600-72f7-5f74166337e2" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust 并发" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">Rust</div><a class="unvisited-post" href="/2025/01/11/rust_concurrency/" title="Rust 并发">未读</a></div><a class="article-title" href="/2025/01/11/rust_concurrency/" title="Rust 并发">Rust 并发</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2025-01-11T03:23:00.000Z" title="发表于 2025-01-11 11:23:00" time="2025-01-11 11:23:00">2025-01-11</time><time class="time_hidden" datetime="2025-01-12T03:24:45.138Z" title="更新于 2025-01-12 11:24:45" time="2025-01-12 11:24:45">2025-01-12</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>后端开发</span></a></span></div><div class="content">Rust 并发与线程
-1. 概念
-并发：在同一时间段内处理多个任务，可以交替执行任务。
-多线程：一种实现并发的方式，通过多个线程独立执行任务。
-
-Rust 的并发模型基于所有权系统，保证内存安全和数据竞争的避免。
-
-2. Rust 并发的作用
-提高性能：将任务分散到多个线程并行处理。
-任务分离：使程序能够同时处理 I&#x2F;O、计算密集型任务。
-资源利用率：充分利用多核 CPU。
-
-
-3. Rust 并发的功能
-线程创建：通过标准库的 std::thread 模块，轻松启动线程。
-线程间通信：使用 Channel 进行数据传递。
-共享数据：通过 Arc 和 Mutex 等工具安全地在线程间共享数据。
-同步：使用锁（如 Mutex）或原子类型（如 AtomicBool）控制访问顺序。
-
-
-4. Rust 并发的使用方法4.1 线程创建与执行123456789101112131415use std::thread;fn main() &#123;    let handle = thread::spawn(|| &#123;        for i in 1..5 &#123;    ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/11/rust_closeup/')"><div class="post_cover left"><a href="/2025/01/11/rust_closeup/" title="Rust 闭包" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/12/23/OEUxH1.jpg?_r_=6c0dba2b-4c76-763c-de08-7853af283d0e" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust 闭包" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">Rust</div><a class="unvisited-post" href="/2025/01/11/rust_closeup/" title="Rust 闭包">未读</a></div><a class="article-title" href="/2025/01/11/rust_closeup/" title="Rust 闭包">Rust 闭包</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2025-01-11T03:20:00.000Z" title="发表于 2025-01-11 11:20:00" time="2025-01-11 11:20:00">2025-01-11</time><time class="time_hidden" datetime="2025-01-12T03:21:07.351Z" title="更新于 2025-01-12 11:21:07" time="2025-01-12 11:21:07">2025-01-12</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>后端开发</span></a></span></div><div class="content">Rust 中闭包的总结1. 闭包的概念闭包（Closure）是可以捕获周围环境变量的匿名函数。它可以存储在变量中作为值传递，也可以作为参数传递给其他函数。
-闭包的主要特点：
-
-可以捕获调用它时的环境变量。
-是一等公民，可以赋值给变量或作为函数参数。
-类型推导强大，不需要显式声明参数或返回值类型。
-
-
-2. 闭包的功能和作用
-简化代码：闭包让代码更简洁，尤其是在处理函数式编程模式（如高阶函数）时。
-延迟计算：通过闭包，可以延迟计算，直到需要时才执行。
-上下文捕获：闭包能捕获所在作用域中的变量。
-自定义逻辑：闭包可用于定义行为并传递给其他函数。
-
-
-3. 闭包的实现方式闭包的基本语法：
-1|参数| 表达式
-
-闭包的签名分三种：
-
-借用捕获：Fn（只读访问）。
-可变借用捕获：FnMut（可变访问）。
-所有权捕获：FnOnce（获取所有权后无法再使用捕获的变量）。
-
-
-4. 实际例子例子 1：基本闭包1234fn main() &#123;    let add = |a: i32, b: i32| a + b; // 定义一个闭包    println!(&quot;3 + 5 = &#12 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/11/rust_test/')"><div class="post_cover left"><a href="/2025/01/11/rust_test/" title="Rust 泛型测试" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/12/23/OEUxH1.jpg?_r_=b474049e-633a-733f-da14-8ecf178ad008" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust 泛型测试" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">Rust</div><a class="unvisited-post" href="/2025/01/11/rust_test/" title="Rust 泛型测试">未读</a></div><a class="article-title" href="/2025/01/11/rust_test/" title="Rust 泛型测试">Rust 泛型测试</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2025-01-11T03:09:00.000Z" title="发表于 2025-01-11 11:09:00" time="2025-01-11 11:09:00">2025-01-11</time><time class="time_hidden" datetime="2025-01-12T03:20:17.909Z" title="更新于 2025-01-12 11:20:17" time="2025-01-12 11:20:17">2025-01-12</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>后端开发</span></a></span></div><div class="content">1. 写测试（11.1 Writing Tests）主要知识点：
-测试函数基础
-
-测试函数使用 #[test] 标注。
-测试函数没有参数，也没有返回值。
-如果测试函数运行时未出现 panic，则测试通过。
-
-
-断言
-
-使用 assert!：断言布尔表达式为真。
-使用 assert_eq! 和 assert_ne!：断言两个值是否相等或不相等（提供更友好的错误信息）。
-
-
-自定义失败消息
-
-可以在断言中添加自定义的错误消息：assert_eq!(a, b, &quot;Expected &#123;&#125; but got &#123;&#125;&quot;, b, a);。
-
-
-测试结果的意义
-
-测试通过：表示代码按预期工作。
-测试失败：帮助定位潜在的逻辑错误。
-
-
-
-
-补充：
-善用断言工具：通过 assert_eq! 和 assert_ne! 能帮助你快速发现问题，尤其在需要调试复杂数据结构时。
-调试辅助：在失败信息中加入变量值，提供更多上下文信息（如：assert!(condition, &quot;Failed because &#123;&#125;&quot;, rea ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/08/rust_lifetime/')"><div class="post_cover left"><a href="/2025/01/08/rust_lifetime/" title="Rust 泛型、Trait 和生命周期语法总结（重点）" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/12/23/OEUxH1.jpg?_r_=7f868677-dba9-7256-5970-e42f91db781e" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust 泛型、Trait 和生命周期语法总结（重点）" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">Rust</div><a class="unvisited-post" href="/2025/01/08/rust_lifetime/" title="Rust 泛型、Trait 和生命周期语法总结（重点）">未读</a></div><a class="article-title" href="/2025/01/08/rust_lifetime/" title="Rust 泛型、Trait 和生命周期语法总结（重点）">Rust 泛型、Trait 和生命周期语法总结（重点）</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2025-01-08T15:07:00.000Z" title="发表于 2025-01-08 23:07:00" time="2025-01-08 23:07:00">2025-01-08</time><time class="time_hidden" datetime="2025-01-08T15:10:20.308Z" title="更新于 2025-01-08 23:10:20" time="2025-01-08 23:10:20">2025-01-08</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>后端开发</span></a></span></div><div class="content">1. 泛型（Chapter 10.1: Generics）核心概念泛型允许定义函数、结构体、枚举或方法时不指定具体类型，而是使用占位符（如 T），使代码更加灵活和可重用。
-关键知识点
-泛型的定义:
-
-在函数签名中使用泛型：
-123456789fn largest&lt;T: PartialOrd&gt;(list: &amp;[T]) -&gt; T &#123;    let mut largest = &amp;list[0];    for item in list &#123;        if item &gt; largest &#123;            largest = item;        &#125;    &#125;    largest.clone()&#125;
-
-在结构体中使用泛型：
-1234struct Point&lt;T&gt; &#123;    x: T,    y: T,&#125;
-
-
-泛型的使用优势:
-
-减少代码重复。
-提高类型安全性。
-灵活支持多种类型。
-
-
-泛型的具体化（Monomorphization）:
-
-编译时，Ru ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/08/rust_error/')"><div class="post_cover left"><a href="/2025/01/08/rust_error/" title="Rust 错误处理总结" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/12/23/OEUxH1.jpg?_r_=fc42ff26-12c0-58f4-92bb-71fcc40df1f7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust 错误处理总结" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">Rust</div><a class="unvisited-post" href="/2025/01/08/rust_error/" title="Rust 错误处理总结">未读</a></div><a class="article-title" href="/2025/01/08/rust_error/" title="Rust 错误处理总结">Rust 错误处理总结</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2025-01-08T04:26:00.000Z" title="发表于 2025-01-08 12:26:00" time="2025-01-08 12:26:00">2025-01-08</time><time class="time_hidden" datetime="2025-01-08T12:58:46.317Z" title="更新于 2025-01-08 20:58:46" time="2025-01-08 20:58:46">2025-01-08</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>后端开发</span></a></span></div><div class="content">Rust 错误处理总结：从 panic! 到 Result 的管理1. 处理不可恢复的错误（Chapter 9.1）关键概念:不可恢复的错误通常指的是那些错误发生后，程序无法继续执行的情况。在 Rust 中，使用 panic! 宏来处理这些错误。
-
-panic! 宏:panic! 用于当程序遇到无法处理的错误时立即终止程序，并输出错误信息。通常用于开发过程中或者对错误无力回天的情况下。
-
-错误的触发:
-
-调用 panic! 触发时，程序会打印出错误信息并退出，程序堆栈会被回溯。回溯信息帮助我们诊断问题。
-panic! 不需要返回值，并且会引发程序的中止。
-
-
-
-示例:123fn main() &#123;    panic!(&quot;This is a panic message!&quot;);&#125;
-
-不可恢复错误的使用场景:
-程序遇到不可修复的错误时，比如非法操作、致命异常等。
-如果某个函数无法继续处理，它就应该直接 panic!，让程序停止执行。
-
-注意事项:
-panic! 的性能开销：一旦发生 panic!，Rust 会开始进行堆栈的回溯，所有的栈帧都会被清理。这是 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/04/rust_generic/')"><div class="post_cover left"><a href="/2025/01/04/rust_generic/" title="Rust 泛型" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/12/23/OEUxH1.jpg?_r_=111b53bf-363b-5ac5-2ed8-8b07771dc64a" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust 泛型" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">Rust</div><a class="unvisited-post" href="/2025/01/04/rust_generic/" title="Rust 泛型">未读</a></div><a class="article-title" href="/2025/01/04/rust_generic/" title="Rust 泛型">Rust 泛型</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2025-01-04T06:00:00.000Z" title="发表于 2025-01-04 14:00:00" time="2025-01-04 14:00:00">2025-01-04</time><time class="time_hidden" datetime="2025-01-04T06:15:04.043Z" title="更新于 2025-01-04 14:15:04" time="2025-01-04 14:15:04">2025-01-04</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>后端开发</span></a></span></div><div class="content">理解 Rust 中的泛型语法Rust 的泛型提供了一种灵活和通用的方式来编写函数、结构体、枚举等。通过泛型，我们可以让代码处理多种数据类型，避免重复编写相同逻辑的代码。
-
-1. 泛型的基本概念泛型让我们能够编写与具体数据类型无关的代码。通过在函数、结构体或枚举中使用类型参数，我们可以在不关心具体数据类型的情况下进行操作。例如，在函数中传入一个泛型类型 T，该函数可以接受不同类型的数据。
-示例：
-123fn generic_function&lt;T&gt;(x: T) -&gt; T &#123;    x&#125;
-这个函数接受任何类型 T 的参数，并返回相同类型的值。
-
-2. 使用泛型函数在函数中使用泛型时，通过在函数签名中指定类型参数来支持多种类型的数据。Rust 的泛型系统要求我们在函数签名中指定类型参数（如 T）来处理任意类型。
-示例：
-123fn print&lt;T&gt;(item: T) &#123;    println!(&quot;&#123;:?&#125;&quot;, item);&#125;
-上面的函数可以接受任何类型的参数，并通过 println!  ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/12/28/rust_err_return/')"><div class="post_cover left"><a href="/2024/12/28/rust_err_return/" title="Rust 返回值和错误处理" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/12/23/OEUxH1.jpg?_r_=a2c5fff0-44b0-12a3-ce6a-dbaecf7139e7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust 返回值和错误处理" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">Rust</div><a class="unvisited-post" href="/2024/12/28/rust_err_return/" title="Rust 返回值和错误处理">未读</a></div><a class="article-title" href="/2024/12/28/rust_err_return/" title="Rust 返回值和错误处理">Rust 返回值和错误处理</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-28T14:19:00.000Z" title="发表于 2024-12-28 22:19:00" time="2024-12-28 22:19:00">2024-12-28</time><time class="time_hidden" datetime="2024-12-28T14:25:15.123Z" title="更新于 2024-12-28 22:25:15" time="2024-12-28 22:25:15">2024-12-28</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>后端开发</span></a></span></div><div class="content">Rust 返回值和错误处理总结Rust 通过 Result 和 Option 类型来进行错误处理。它不使用异常机制，而是显式地通过返回值来表示是否发生错误。以下是对 Rust 中返回值和错误处理的总结：
-
-1. Result 类型（用于处理错误）Result 是一个枚举类型，表示操作的成功或失败，定义如下：
-1234enum Result&lt;T, E&gt; &#123;    Ok(T),   // 成功时返回的值    Err(E),  // 错误时返回的错误信息&#125;
-
-
-Ok(T): 表示操作成功，T 是操作成功后的返回值类型。
-Err(E): 表示操作失败，E 是错误类型。
-
-使用场景
-Result 通常用于那些可能失败的操作，如文件 I&#x2F;O、网络请求等。
-你可以通过模式匹配 (match) 或 unwrap()、expect() 等方法来处理 Result。
-
-示例：1234567891011121314fn divide(a: i32, b: i32) -&gt; Result&lt;f64, String&gt; &#123;    if b ==  ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/12/28/rust_mokuai/')"><div class="post_cover left"><a href="/2024/12/28/rust_mokuai/" title="Rust 模块化" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/12/23/OEUxH1.jpg?_r_=a0390d29-0e61-aa80-e877-714b7cb4701b" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust 模块化" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">Rust</div><a class="unvisited-post" href="/2024/12/28/rust_mokuai/" title="Rust 模块化">未读</a></div><a class="article-title" href="/2024/12/28/rust_mokuai/" title="Rust 模块化">Rust 模块化</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-28T14:19:00.000Z" title="发表于 2024-12-28 22:19:00" time="2024-12-28 22:19:00">2024-12-28</time><time class="time_hidden" datetime="2024-12-28T15:18:34.494Z" title="更新于 2024-12-28 23:18:34" time="2024-12-28 23:18:34">2024-12-28</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>后端开发</span></a></span></div><div class="content">工程化模块1. 模块 (Modules)模块是Rust的一个重要特性，它帮助组织和分隔代码，使代码更加清晰和易于维护。模块可以将相关的功能、结构体、函数等封装在一起。
-1.1 定义模块模块可以通过mod关键字来定义：
-12345mod my_module &#123;    pub fn say_hello() &#123;        println!(&quot;Hello from the module!&quot;);    &#125;&#125;
-
-
-mod 关键字声明了一个新的模块 my_module。
-pub 关键字使 say_hello 函数对外可见。如果没有pub，默认情况下它是私有的，只能在当前模块内访问。
-
-1.2 访问模块中的内容要访问模块中的内容，可以使用mod_name::function_name的方式：
-123456789mod my_module &#123;    pub fn say_hello() &#123;        println!(&quot;Hello from the module!&quot;);    &#125;&#12 ...</div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/12/27/rust_enum/')"><div class="post_cover left"><a href="/2024/12/27/rust_enum/" title="Rust 枚举和模式匹配" style="display: flex;height: 100%;"><img class="post_bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/12/23/OEUxH1.jpg?_r_=3ca29ec8-c450-a49d-fa1c-52640b97ef4c" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Rust 枚举和模式匹配" style="pointer-events: none"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><div class="article-categories-original">Rust</div><a class="unvisited-post" href="/2024/12/27/rust_enum/" title="Rust 枚举和模式匹配">未读</a></div><a class="article-title" href="/2024/12/27/rust_enum/" title="Rust 枚举和模式匹配">Rust 枚举和模式匹配</a></div><div class="article-meta-wrap"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days" style="font-size: 15px; display:none"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-27T09:44:00.000Z" title="发表于 2024-12-27 17:44:00" time="2024-12-27 17:44:00">2024-12-27</time><time class="time_hidden" datetime="2024-12-27T10:55:56.504Z" title="更新于 2024-12-27 18:55:56" time="2024-12-27 18:55:56">2024-12-27</time></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" event.cancelbubble onclick="window.event.cancelBubble=true;"><span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>后端开发</span></a></span></div><div class="content">定义枚举（Enum）
-定义枚举
- 定义方式： 使用 enum 关键字定义枚举：
-
-
-1234enum IpAddrKind &#123;    V4,    V6,&#125;
-
-IpAddrKind 是枚举的名字。
-
-枚举成员 V4 和 V6 是可能的值。
-
-使用枚举： 可以通过枚举值创建实例：
-12let four = IpAddrKind::V4;let six = IpAddrKind::V6;
-
-
-枚举和结构体结合
- 枚举成员可以携带数据，类似于结构体：
-
-
-123456enum IpAddr &#123;    V4(String),    V6(String),&#125;let home = IpAddr::V4(String::from(&quot;127.0.0.1&quot;));let loopback = IpAddr::V6(String::from(&quot;::1&quot;));
-
-每个枚举成员的数据类型可以不同：123456enum IpAddr &#123;    V4(u8, u8, u8, u8),    V6(String),&#125;l ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><div class="pagination_tips_next">下页</div><i style="font-weight: inherit; font-size: 1rem;" class="anzhiyufont anzhiyu-icon-chevron-right fa-fw"></i></a><div class="toPageGroup"><input id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" onkeyup="this.value=this.value.replace(/[^u4e00-u9fa5w]/g,'')" aria-label="toPage"><a id="toPageButton" onclick="anzhiyu.toPage()"><i class="anzhiyufont anzhiyu-icon-angles-right" style="font-weight: inherit; font-size: 1rem;"></i></a></div></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ooo.0x0.ooo/2024/12/23/OEUz8I.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">Documenting my transition into Web3 technologies, focusing on Rust, Solidity, and blockchain development.</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Seafarer</h1><div class="author-info__desc">Exploring the Future of Web3 and Coding</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/seafarer" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget"><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 1.05rem;">后端开发<sup>15</sup></a></div></div><hr/><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">7</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">十二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li></ul></div><hr/><div class="card-webinfo"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-item-title"><i class="anzhiyufont anzhiyu-icon-file-lines"></i><div class="item-name">文章总数 :</div></div><div class="item-count">15</div></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="anzhiyufont anzhiyu-icon-stopwatch"></i><div class="item-name">建站天数 :</div></div><div class="item-count" id="runtimeshow" data-publishDate="2024-12-21T16:00:00.000Z"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></div></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="anzhiyufont anzhiyu-icon-universal-access"></i><div class="item-name">总访客数 :</div></div><div class="item-count" id="busuanzi_value_site_uv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></div></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="anzhiyufont anzhiyu-icon-square-poll-vertical"></i><div class="item-name">总访问量 :</div></div><div class="item-count" id="busuanzi_value_site_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></div></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2025 By <a class="footer-bar-link" href="/" title="Seafarer" target="_blank">Seafarer</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">1</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 0.88rem;">后端开发<sup>15</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
-var HoldLog = console.log;
-console.log = function () {};
-let now1 = new Date();
-queueMicrotask(() => {
-  const Log = function () {
-    HoldLog.apply(console, arguments);
-  }; //在恢复前输出日志
-  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
-  now1.setTime(now1.getTime() + 250);
-  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
-  const dnum = Math.floor(days);
-  const ascll = [
-    `欢迎使用安知鱼!`,
-    `生活明朗, 万物可爱`,
-    `
-        
-       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
-      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
-      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
-      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
-      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
-      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
-        
-        `,
-    "已上线",
-    dnum,
-    "天",
-    "©2020 By 安知鱼 V1.6.14",
-  ];
-  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
-
-  setTimeout(
-    Log.bind(
-      console,
-      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
-      "color:#425AEF",
-      "",
-      "color:#425AEF",
-      "color:#425AEF",
-      "",
-      "color:#425AEF",
-      ""
-    )
-  );
-  setTimeout(
-    Log.bind(
-      console,
-      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
-      "color:white; background-color:#4fd953",
-      "",
-      "",
-      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
-    )
-  );
-
-  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
-
-  setTimeout(
-    console.warn.bind(
-      console,
-      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Seafarer 的博客.",
-      "color:white; background-color:#f0ad4e",
-      ""
-    )
-  );
-
-  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
-
-  setTimeout(
-    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
-  );
-});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>if (typeof gsap === "object") {
-  getScript("/js/anzhiyu/people.js", {defer:true})
-} else {
-  getScript("https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/gsap/gsap.min.js").then(()=>{
-    getScript("/js/anzhiyu/people.js", {defer:true})
-  });
-}</script><input type="hidden" name="page-type" id="page-type" value="anzhiyu"></div><script>var visitorMail = "";
-</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
-
-document.addEventListener('pjax:send', function () {
-  // removeEventListener scroll 
-  anzhiyu.removeGlobalFnEvent('pjax')
-  anzhiyu.removeGlobalFnEvent('themeChange')
-
-  document.getElementById('rightside').classList.remove('rightside-show')
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
-      }
+    })()</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
     }
-  }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: undefined,
+    runtime: '2023-04-20 00:00:00',
+    lazyload: {
+        enable: false,
+        error: '/img/error_load.avif'
+    },
+    copyright: false,
+    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
+    randomlink: false,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可"},
+    aside: {
+        state: {
+            morning: "✨ 早上好，新的一天开始了",
+            noon: "🍲 午餐时间",
+            afternoon: "🌞 下午好",
+            night: "早点休息",
+            goodnight: "晚安 😴",
+        },
+        witty_words: [],
+        witty_comment: {
+            prefix: '好久不见，',
+            back: '欢迎再次回来，',
+        },
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: false,
+    lightbox: 'null',
+    post_ai: false,
+    right_menu: false,
+    translate: {"translateDelay":0,"defaultEncoding":2},
+    lure: false,
+    expire: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: false,
+    is_page: false,
+    is_home: true,
+    page: 'solitude',
+    toc: false,
+    comment: false,
+    ai_text: false,
+    color: false,
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body id="body" data-type="solitude"><!-- universe--><!-- background img--><!-- loading--><!-- console--><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude fas fa-circle-half-stroke"></i><span>显示模式</span></span></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="card-tag-cloud"><a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发<sup>16</sup></a><a href="/tags/Solana/">Solana<sup>1</sup></a></div></div></div></div><!-- keyboard--><!-- righhtside--><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="返回博客主页"><span class="title">Solitude</span><i class="solitude fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">Seafarer</a></div></div><div id="menus"></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude fas fa-arrow-up"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude fas fa-bars"></i></a></div></div></div></nav></header><main class="layout" id="content-inner"><div id="home"><div id="category-bar"><div class="category-bar-items home" id="category-bar-items"><div class="category-bar-item select" id="category-bar-home"><a href="/">推荐</a></div><div class="category-bar-item"><a href="/archives/">全部文章</a></div><div class="category-bar-item" id="Rust"><a href="/categories/Rust/">Rust</a></div><div class="category-bar-item" id="Solana"><a href="/categories/Solana/">Solana</a></div></div><div class="category-bar-right"><a class="category-bar-more" href="/categories/">更多</a></div></div><div class="recent-posts" id="recent-posts"><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/31/solana_wallet/')"><div class="post_cover"><a href="/2025/01/31/solana_wallet/" title="Solana 账户"><img class="post_bg" src="/" alt="Solana 账户"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">Solana</span><span class="original">最新</span><a class="unvisited-post" href="/2025/01/31/solana_wallet/">未读</a></div><a class="article-title" href="/2025/01/31/solana_wallet/" title="Solana 账户">Solana 账户</a></div><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Solana/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>Solana</span></a></span><span class="post-meta-date"><time datetime="2025-01-31T08:25:00.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/11/rust_solana-cli/')"><div class="post_cover"><a href="/2025/01/11/rust_solana-cli/" title="Solana-cli 常见用法"><img class="post_bg" src="/" alt="Solana-cli 常见用法"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">Rust</span><a class="unvisited-post" href="/2025/01/11/rust_solana-cli/">未读</a></div><a class="article-title" href="/2025/01/11/rust_solana-cli/" title="Solana-cli 常见用法">Solana-cli 常见用法</a></div><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>后端开发</span></a></span><span class="post-meta-date"><time datetime="2025-01-11T03:25:00.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/11/rust_memory/')"><div class="post_cover"><a href="/2025/01/11/rust_memory/" title="Rust 内存"><img class="post_bg" src="/" alt="Rust 内存"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">Rust</span><a class="unvisited-post" href="/2025/01/11/rust_memory/">未读</a></div><a class="article-title" href="/2025/01/11/rust_memory/" title="Rust 内存">Rust 内存</a></div><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>后端开发</span></a></span><span class="post-meta-date"><time datetime="2025-01-11T03:25:00.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/11/rust_concurrency/')"><div class="post_cover"><a href="/2025/01/11/rust_concurrency/" title="Rust 并发"><img class="post_bg" src="/" alt="Rust 并发"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">Rust</span><a class="unvisited-post" href="/2025/01/11/rust_concurrency/">未读</a></div><a class="article-title" href="/2025/01/11/rust_concurrency/" title="Rust 并发">Rust 并发</a></div><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>后端开发</span></a></span><span class="post-meta-date"><time datetime="2025-01-11T03:23:00.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/11/rust_closeup/')"><div class="post_cover"><a href="/2025/01/11/rust_closeup/" title="Rust 闭包"><img class="post_bg" src="/" alt="Rust 闭包"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">Rust</span><a class="unvisited-post" href="/2025/01/11/rust_closeup/">未读</a></div><a class="article-title" href="/2025/01/11/rust_closeup/" title="Rust 闭包">Rust 闭包</a></div><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>后端开发</span></a></span><span class="post-meta-date"><time datetime="2025-01-11T03:20:00.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/11/rust_test/')"><div class="post_cover"><a href="/2025/01/11/rust_test/" title="Rust 泛型测试"><img class="post_bg" src="/" alt="Rust 泛型测试"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">Rust</span><a class="unvisited-post" href="/2025/01/11/rust_test/">未读</a></div><a class="article-title" href="/2025/01/11/rust_test/" title="Rust 泛型测试">Rust 泛型测试</a></div><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>后端开发</span></a></span><span class="post-meta-date"><time datetime="2025-01-11T03:09:00.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/08/rust_lifetime/')"><div class="post_cover"><a href="/2025/01/08/rust_lifetime/" title="Rust 泛型、Trait 和生命周期语法总结（重点）"><img class="post_bg" src="/" alt="Rust 泛型、Trait 和生命周期语法总结（重点）"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">Rust</span><a class="unvisited-post" href="/2025/01/08/rust_lifetime/">未读</a></div><a class="article-title" href="/2025/01/08/rust_lifetime/" title="Rust 泛型、Trait 和生命周期语法总结（重点）">Rust 泛型、Trait 和生命周期语法总结（重点）</a></div><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>后端开发</span></a></span><span class="post-meta-date"><time datetime="2025-01-08T15:07:00.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/08/rust_error/')"><div class="post_cover"><a href="/2025/01/08/rust_error/" title="Rust 错误处理总结"><img class="post_bg" src="/" alt="Rust 错误处理总结"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">Rust</span><a class="unvisited-post" href="/2025/01/08/rust_error/">未读</a></div><a class="article-title" href="/2025/01/08/rust_error/" title="Rust 错误处理总结">Rust 错误处理总结</a></div><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>后端开发</span></a></span><span class="post-meta-date"><time datetime="2025-01-08T04:26:00.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2025/01/04/rust_generic/')"><div class="post_cover"><a href="/2025/01/04/rust_generic/" title="Rust 泛型"><img class="post_bg" src="/" alt="Rust 泛型"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">Rust</span><a class="unvisited-post" href="/2025/01/04/rust_generic/">未读</a></div><a class="article-title" href="/2025/01/04/rust_generic/" title="Rust 泛型">Rust 泛型</a></div><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>后端开发</span></a></span><span class="post-meta-date"><time datetime="2025-01-04T06:00:00.000Z"></time></span></div></div></div><div class="recent-post-item" onclick="pjax.loadUrl('/2024/12/28/rust_err_return/')"><div class="post_cover"><a href="/2024/12/28/rust_err_return/" title="Rust 返回值和错误处理"><img class="post_bg" src="/" alt="Rust 返回值和错误处理"></a></div><div class="recent-post-info"><div class="recent-post-info-top"><div class="recent-post-info-top-tips"><span class="original">Rust</span><a class="unvisited-post" href="/2024/12/28/rust_err_return/">未读</a></div><a class="article-title" href="/2024/12/28/rust_err_return/" title="Rust 返回值和错误处理">Rust 返回值和错误处理</a></div><div class="article-meta-wrap"><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" onclick="event.stopPropagation();"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>后端开发</span></a></span><span class="post-meta-date"><time datetime="2024-12-28T14:19:00.000Z"></time></span></div></div></div><!-- pagination--><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><div class="pagination_tips_next">下一页</div> <i class="solitude fas fa-chevron-right"></i></a><div class="toPageGroup"><input id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" title="跳转到指定页面" onkeyup="if (this.value === '0') this.value = ''"><a id="toPageButton" onclick="sco.toPage()"><i class="solitude fas fa-angles-right"></i></a></div></div></nav></div></div><!-- aside--><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="top-group"><div class="sayhi" id="sayhi" onclick="sco.changeWittyWord()"></div></div></div><div class="avatar"><img alt="头像" src="/img/logo.png"></div><div class="description"></div><div class="bottom-group"><span class="left"><div class="name">Seafarer</div><div class="desc">只有迎风，风筝才能飞得更高。</div></span><div class="social-icons is-center"></div></div></div></div><div class="sticky_layout"><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章总数 :</div><div class="item-count">17</div></div><div class="webinfo-item"><div class="item-name">建站天数 :</div><div class="item-count" id="runtimeshow"></div></div><div class="webinfo-item"><div class="item-name">最后更新 :</div><time class="item-count" datetime="2025-01-31T08:28:20.961Z"></time></div></div></div></div></div></main><footer id="footer"><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2025 By&nbsp;<a class="footer-bar-link" href="/"><img class="author-avatar" src="/img/pwa/favicon.png">Seafarer</a></div><div class="beian-group"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://hexo.io/">框架：Hexo</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/everfu/hexo-theme-solitude">主题：Solitude</a></div></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=3.0.8"></script><script src="/js/main.js?v=3.0.8"></script><script src="/js/third_party/waterfall.min.js?v=3.0.8"></script><script src="https://fastly.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/tw_cn.js?v=3.0.8"></script><script src="https://fastly.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>window.paceOptions = {
+  restartOnPushState: false
+}
 
-  typeof typed === 'object' && typed.destroy()
-
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+utils.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+</script><script src="https://fastly.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div class="js-pjax"></div></div><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ["title","#body-wrap","#site-config","meta[name=\"description\"]",".js-pjax","meta[property^=\"og:\"]","#config-diff",".rs_show",".rs_hide"],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
 })
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
-
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
+document.querySelectorAll('script[data-pjax]').forEach(item => {
     const newScript = document.createElement('script')
     const content = item.text || item.textContent || item.innerHTML || ""
     Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
     newScript.appendChild(document.createTextNode(content))
     item.parentNode.replaceChild(newScript, item)
-  })
-
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
-
-  typeof panguInit === 'function' && panguInit()
-
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
-
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
-
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
-
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
 })
 
-document.addEventListener('pjax:error', e => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
-  }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- google adsense--><!-- search--><!-- Tianli-Talk--><!-- music--></body></html>
+        <script>
+            const posts = ["2025/01/31/solana_wallet/","2025/01/11/rust_solana-cli/","2025/01/11/rust_memory/","2025/01/11/rust_concurrency/","2025/01/11/rust_closeup/","2025/01/11/rust_test/","2025/01/08/rust_lifetime/","2025/01/08/rust_error/","2025/01/04/rust_generic/","2024/12/28/rust_err_return/","2024/12/28/rust_mokuai/","2024/12/27/rust_enum/","2024/12/26/rust_struct/","2024/12/24/rust_owner/","2024/12/24/rust_class/","2024/12/22/rust_toLearn/","2024/12/22/rust_toLearn2/"];
+            function toRandomPost() {
+                const randomPost = posts[Math.floor(Math.random() * posts.length)];
+                pjax.loadUrl(GLOBAL_CONFIG.root + randomPost);
+            }
+        </script>

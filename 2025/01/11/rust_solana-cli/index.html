@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Solana-cli 常见用法 | Seafarer</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/pwa/favicon.png"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=3.0.8"><!-- inject head--><link rel="canonical" href="http://example.com/2025/01/11/rust_solana-cli/index.html"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"><!-- aplayer--><!-- swiper--><!-- fancybox ui--><!-- katex--><!-- Open Graph--><meta name="description" content="Solana CLI 常见用法总结好的，以下是关于 Solana CLI 常用命令的总结，主要涵盖 config get、config set --url、config new、address、balance 以及交易相关的常用命令： Solana CLI 常用命令总结 1. 配置管理这些命令用于"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="Seafarer"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.png"><link rel="apple-touch-icon" href="/img/pwa/favicon.png" sizes="180x180"><script>console.log(' %c Solitude %c ' + '3.0.8' + ' %c https://github.com/everfu/hexo-theme-solitude',
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
+</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+
+                if (name && keyObj[name]) return
+
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+            addEventListenerPjax: (ele, event, fn, option = false) => {
+              ele.addEventListener(event, fn, option)
+              utils.addGlobalFn('pjax', () => {
+                  ele.removeEventListener(event, fn, option)
+              })
+          },
+        }
+    })()</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: undefined,
+    runtime: '2023-04-20 00:00:00',
+    lazyload: {
+        enable: false,
+        error: '/img/error_load.avif'
+    },
+    copyright: false,
+    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
+    randomlink: false,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可"},
+    aside: {
+        state: {
+            morning: "✨ 早上好，新的一天开始了",
+            noon: "🍲 午餐时间",
+            afternoon: "🌞 下午好",
+            night: "早点休息",
+            goodnight: "晚安 😴",
+        },
+        witty_words: [],
+        witty_comment: {
+            prefix: '好久不见，',
+            back: '欢迎再次回来，',
+        },
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: false,
+    lightbox: 'null',
+    post_ai: false,
+    right_menu: false,
+    translate: {"translateDelay":0,"defaultEncoding":2},
+    lure: false,
+    expire: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: '',
+    toc: true,
+    comment: false,
+    ai_text: false,
+    color: false,
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body id="body"><!-- universe--><!-- background img--><!-- loading--><!-- console--><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude fas fa-circle-half-stroke"></i><span>显示模式</span></span></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="card-tag-cloud"><a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发<sup>16</sup></a><a href="/tags/Solana/">Solana<sup>1</sup></a></div></div></div></div><!-- keyboard--><!-- righhtside--><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="返回博客主页"><span class="title">Solitude</span><i class="solitude fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">Solana-cli 常见用法</a></div></div><div id="menus"></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude fas fa-arrow-up"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude fas fa-bars"></i></a></div></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议">原创</a><span class="post-meta-categories"><a class="post-meta-categories" href="/categories/Rust/">Rust</a></span><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="tags-name tags-punctuation"><i class="solitude fas fa-hashtag"></i>后端开发</span></a></div></div></div></div><h1 class="post-title">Solana-cli 常见用法</h1><div id="post-meta"><div class="meta-secondline"></div></div></div><article class="post-content article-container"><h3 id="Solana-CLI-常见用法总结"><a href="#Solana-CLI-常见用法总结" class="headerlink" title="Solana CLI 常见用法总结"></a><strong>Solana CLI 常见用法总结</strong></h3><p>好的，以下是关于 <strong>Solana CLI</strong> 常用命令的总结，主要涵盖 <code>config get</code>、<code>config set --url</code>、<code>config new</code>、<code>address</code>、<code>balance</code> 以及交易相关的常用命令：</p>
+<hr>
+<h3 id="Solana-CLI-常用命令总结"><a href="#Solana-CLI-常用命令总结" class="headerlink" title="Solana CLI 常用命令总结"></a><strong>Solana CLI 常用命令总结</strong></h3><hr>
+<h4 id="1-配置管理"><a href="#1-配置管理" class="headerlink" title="1. 配置管理"></a><strong>1. 配置管理</strong></h4><p>这些命令用于查看和设置 Solana CLI 的配置。</p>
+<ul>
+<li><p><strong>查看当前配置：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana config get</span><br></pre></td></tr></table></figure>
+<p>这个命令会显示当前的 Solana 配置，包括默认的网络 URL、密钥文件路径等。</p>
+</li>
+<li><p><strong>设置网络 URL：</strong><br>使用 <code>config set --url</code> 可以更改连接的 Solana 网络（如主网、测试网或开发网）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana config <span class="built_in">set</span> --url https://api.mainnet-beta.solana.com</span><br></pre></td></tr></table></figure>
+<p>常见的网络 URL:</p>
+<ul>
+<li>主网：<code>https://api.mainnet-beta.solana.com</code></li>
+<li>测试网：<code>https://api.testnet.solana.com</code></li>
+<li>开发网：<code>https://api.devnet.solana.com</code></li>
+</ul>
+</li>
+<li><p><strong>设置密钥文件路径：</strong><br>如果你希望更改 Solana 密钥文件的位置，可以使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana config <span class="built_in">set</span> --keypair &lt;KEYPAIR_PATH&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>生成新的配置文件：</strong><br>生成新的配置文件可以帮助你创建新的 Solana 网络连接设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana config new</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h4 id="2-查看账户信息"><a href="#2-查看账户信息" class="headerlink" title="2. 查看账户信息"></a><strong>2. 查看账户信息</strong></h4><p>这些命令用于查看当前账户的公钥、余额等信息。</p>
+<ul>
+<li><p><strong>查看账户公钥：</strong><br>显示当前使用的 Solana 账户的公钥（通常在密钥文件中指定）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana address</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查看账户余额：</strong><br>查询当前账户的 SOL 余额：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana balance</span><br></pre></td></tr></table></figure>
+<p>这个命令会显示当前钱包地址上的 SOL 余额。</p>
+</li>
+</ul>
+<hr>
+<h4 id="3-交易操作"><a href="#3-交易操作" class="headerlink" title="3. 交易操作"></a><strong>3. 交易操作</strong></h4><p>这些命令用于创建和管理 Solana 网络上的交易。</p>
+<ul>
+<li><p><strong>创建钱包：</strong><br> 这个命令会生成一个新的密钥对，并保存到默认位置（~&#x2F;.config&#x2F;solana&#x2F;id.json）。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana-keygen new</span><br></pre></td></tr></table></figure></li>
+<li><p>指定自定义文件路径:<br>如果你希望将密钥对保存到自定义路径，可以使用 –outfile 参数：   </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana-keygen new --outfile /path/to/your/keypair.json</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>发送 SOL（转账）：</strong><br>将 SOL 从一个账户转账到另一个账户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana transfer &lt;RECIPIENT_PUBLIC_KEY&gt; &lt;AMOUNT&gt;</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana transfer GfH1... 0.5</span><br></pre></td></tr></table></figure>
+<p>这条命令将 0.5 SOL 转账到目标账户。</p>
+</li>
+<li><p><strong>带 <code>--allow-unfunded-recipient</code> 参数的转账：</strong><br>允许将 SOL 转账到没有资金的账户，通常用于向新账户发送 SOL 或测试环境。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana transfer &lt;RECIPIENT_PUBLIC_KEY&gt; &lt;AMOUNT&gt; --allow-unfunded-recipient</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>带 <code>--confirm</code> 参数的转账：</strong><br>确保命令会等待交易确认后才返回结果，避免立即返回不完全的交易状态。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solana transfer &lt;RECIPIENT_PUBLIC_KEY&gt; &lt;AMOUNT&gt; --confirm</span><br></pre></td></tr></table></figure></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><div class="post-copyright__author_img"><img class="post-copyright__author_img_front" src="/img/logo.png"></div><div class="post-copyright__author_name">Seafarer</div><div class="post-copyright__author_desc">Exploring the Future of Web3 and Coding</div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/">Seafarer</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"><span class="tags-punctuation"><i class="solitude fas fa-hashtag"></i>后端开发<span class="tagsPageCount">16</span></span></a></div></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/01/31/solana_wallet/"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Solana 账户</div></div></a></div><div class="next-post pull-right"><a href="/2025/01/11/rust_memory/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Rust 内存</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="top-group"><div class="sayhi" id="sayhi" onclick="sco.changeWittyWord()"></div></div></div><div class="avatar"><img alt="头像" src="/img/logo.png"></div><div class="description"></div><div class="bottom-group"><span class="left"><div class="name">Seafarer</div><div class="desc">只有迎风，风筝才能飞得更高。</div></span><div class="social-icons is-center"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="solitude fas fa-bars"></i><span>文章目录</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Solana-CLI-%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93"><span class="toc-text">Solana CLI 常见用法总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solana-CLI-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93"><span class="toc-text">Solana CLI 常用命令总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86"><span class="toc-text">1. 配置管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%9F%A5%E7%9C%8B%E8%B4%A6%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-text">2. 查看账户信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BA%A4%E6%98%93%E6%93%8D%E4%BD%9C"><span class="toc-text">3. 交易操作</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude fas fa-map"></i><span>最近发布</span></div><div class="aside-list"><a class="aside-list-item" href="/2025/01/31/solana_wallet/" title="Solana 账户"><div class="content"><span class="title" href="/2025/01/31/solana_wallet/" title="Solana 账户">Solana 账户</span><span class="categories" href="/2025/01/31/solana_wallet/">Solana</span></div></a><a class="aside-list-item" href="/2025/01/11/rust_solana-cli/" title="Solana-cli 常见用法"><div class="content"><span class="title" href="/2025/01/11/rust_solana-cli/" title="Solana-cli 常见用法">Solana-cli 常见用法</span><span class="categories" href="/2025/01/11/rust_solana-cli/">Rust</span></div></a><a class="aside-list-item" href="/2025/01/11/rust_memory/" title="Rust 内存"><div class="content"><span class="title" href="/2025/01/11/rust_memory/" title="Rust 内存">Rust 内存</span><span class="categories" href="/2025/01/11/rust_memory/">Rust</span></div></a><a class="aside-list-item" href="/2025/01/11/rust_concurrency/" title="Rust 并发"><div class="content"><span class="title" href="/2025/01/11/rust_concurrency/" title="Rust 并发">Rust 并发</span><span class="categories" href="/2025/01/11/rust_concurrency/">Rust</span></div></a><a class="aside-list-item" href="/2025/01/11/rust_closeup/" title="Rust 闭包"><div class="content"><span class="title" href="/2025/01/11/rust_closeup/" title="Rust 闭包">Rust 闭包</span><span class="categories" href="/2025/01/11/rust_closeup/">Rust</span></div></a></div></div></div></div></main><footer id="footer"><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2025 By&nbsp;<a class="footer-bar-link" href="/"><img class="author-avatar" src="/img/pwa/favicon.png">Seafarer</a></div><div class="beian-group"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://hexo.io/">框架：Hexo</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/everfu/hexo-theme-solitude">主题：Solitude</a></div></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=3.0.8"></script><script src="/js/main.js?v=3.0.8"></script><script src="/js/third_party/waterfall.min.js?v=3.0.8"></script><script src="https://fastly.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/tw_cn.js?v=3.0.8"></script><script src="https://fastly.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+utils.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+</script><script src="https://fastly.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div class="js-pjax"></div></div><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ["title","#body-wrap","#site-config","meta[name=\"description\"]",".js-pjax","meta[property^=\"og:\"]","#config-diff",".rs_show",".rs_hide"],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- google adsense--><!-- search--><!-- Tianli-Talk--><!-- music--></body></html>
+        <script>
+            const posts = ["2025/01/31/solana_wallet/","2025/01/11/rust_solana-cli/","2025/01/11/rust_memory/","2025/01/11/rust_concurrency/","2025/01/11/rust_closeup/","2025/01/11/rust_test/","2025/01/08/rust_lifetime/","2025/01/08/rust_error/","2025/01/04/rust_generic/","2024/12/28/rust_err_return/","2024/12/28/rust_mokuai/","2024/12/27/rust_enum/","2024/12/26/rust_struct/","2024/12/24/rust_owner/","2024/12/24/rust_class/","2024/12/22/rust_toLearn/","2024/12/22/rust_toLearn2/"];
+            function toRandomPost() {
+                const randomPost = posts[Math.floor(Math.random() * posts.length)];
+                pjax.loadUrl(GLOBAL_CONFIG.root + randomPost);
+            }
+        </script>

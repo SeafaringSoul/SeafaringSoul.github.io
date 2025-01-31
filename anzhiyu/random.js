@@ -1,3 +1,0 @@
-var posts=["2025/01/11/rust_closeup/","2025/01/11/rust_concurrency/","2024/12/27/rust_enum/","2024/12/24/rust_class/","2025/01/08/rust_lifetime/","2025/01/11/rust_memory/","2025/01/04/rust_generic/","2025/01/08/rust_error/","2024/12/26/rust_struct/","2025/01/11/rust_test/","2024/12/22/rust_toLearn/","2024/12/22/rust_toLearn2/","2024/12/28/rust_err_return/","2024/12/28/rust_mokuai/","2024/12/24/rust_owner/"];function toRandomPost(){
-    pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);
-  };
